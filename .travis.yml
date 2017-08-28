@@ -21,5 +21,5 @@ after_script:
   - cd src/main/java
   - ls -la
   - cat ../../../target/site/cobertura/coverage.xml
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ../../../cc-test-reporter format-coverage -t cobertura ../../../target/site/cobertura/coverage.xml; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ../../../cc-test-reporter format-coverage -d -t cobertura ../../../target/site/cobertura/coverage.xml; fi
   - cat coverage/codeclimate.json
