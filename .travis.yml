@@ -17,6 +17,9 @@ before_script:
 script:
   - mvn cobertura:cobertura -Dsurefire.useFile=false
 after_script:
+  - ls -la 
   - cd src/main/java
+  - ls -la
+  - cat ../../../target/site/cobertura/coverage.xml
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ../../../cc-test-reporter format-coverage -t cobertura ../../../target/site/cobertura/coverage.xml; fi
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ../../../cc-test-reporter upload-coverage; fi
+  - cat coverage/codeclimate.json
